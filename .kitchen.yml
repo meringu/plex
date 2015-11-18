@@ -13,7 +13,4 @@ platforms:
 suites:
   - name: default
     run_list:
-
       - recipe[plex::default]
-
-    attributes:

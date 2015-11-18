@@ -8,11 +8,11 @@
 #
 
 distro = ''
-if node[:platform_family].include?('rhel')
+if node['platform_family'].include?('rhel')
   distro = 'CentOS'
-elsif node[:platform_family].include?('fedora')
+elsif node['platform_family'].include?('fedora')
   distro = 'Fedora'
-elsif node[:platform_family].include?('debian')
+elsif node['platform_family'].include?('debian')
   distro = 'Ubuntu'
 else
   raise
@@ -29,8 +29,8 @@ remote_file file do
   action :create
 end
 
-if node[:platform_family].include?('rhel') || node[:platform_family].include?('fedora')
+if node['platform_family'].include?('rhel') || node['platform_family'].include?('fedora')
   rpm_package file
-elsif node[:platform_family].include?('debian')
+elsif node['platform_family'].include?('debian')
   dpkg_package file
 end
