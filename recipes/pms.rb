@@ -15,3 +15,7 @@ when 'debian'
 when 'fedora', 'rhel'
   rpm_package installer_file
 end
+
+service 'plexmediaserver' do
+  action [:enable, :start]
+end
