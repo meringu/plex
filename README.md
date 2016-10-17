@@ -1,6 +1,6 @@
 plex Cookbook
 =============
-Installs the latest version of Plex by parsing plex.tv/downloads and grabbing latest .rpm or .deb package.
+Installs the latest version of Plex from the plex downloads API.
 
 Requirements
 ------------
