@@ -1,0 +1,8 @@
+sudo: required
+services:
+- docker
+language: ruby
+rvm:
+- 2.3.1
+script:
+- KITCHEN_YAML=.kitchen.docker.yml bundle exec kitchen test

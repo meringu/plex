@@ -1,0 +1,29 @@
+---
+driver:
+  name: docker
+  privileged: true
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-7.2
+    driver_config:
+      run_command: /usr/sbin/init
+  - name: fedora-22
+    driver_config:
+      run_command: /usr/sbin/init
+  - name: ubuntu-16.04
+    driver_config:
+      run_command: /sbin/init
+
+suites:
+  - name: default
+    run_list:
+      - recipe[plex::default]
+    attributes:
+      plex:
+        service_provider: Chef::Provider::Service::Systemd
+
+verifier:
+  name: inspec

@@ -1,17 +1,20 @@
-plex Cookbook
-=============
-Installs the latest version of Plex from the plex downloads API.
+# plex Cookbook
 
-Requirements
-------------
-Fedora, Debian or RHEL family linux
+[![Cookbook Version](https://img.shields.io/cookbook/v/plex.svg?style=flat)](https://supermarket.chef.io/cookbooks/plex)
+[![Build Status](https://travis-ci.org/meringu/plex.svg?branch=master)](https://travis-ci.org/meringu/plex)
 
-Attributes
-----------
-Someone add support for specifying a version!
+Installs the latest version of Plex from the Plex downloads API.
 
-Contributing
-------------
+# Requirements
+
+Fedora, Debian or RHEL family Linux
+
+# Usage
+
+Add `recipe[plex]` to your run_list to install/upgrade to the latest version of
+Plex media server
+
+# Contributing
 
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
@@ -20,6 +23,6 @@ Contributing
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github
 
-License and Authors
--------------------
+# License and Authors
+
 Authors: Henry Muru Paenga

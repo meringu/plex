@@ -17,5 +17,6 @@ when 'fedora', 'rhel'
 end
 
 service 'plexmediaserver' do
+  provider Object.const_get(node['plex']['service_provider']) unless node['plex']['service_provider'].nil?
   action [:enable, :start]
 end
