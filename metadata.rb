@@ -1,7 +1,7 @@
 name             'plex'
 maintainer       'Henry Muru Paenga'
 maintainer_email 'meringu@gmail.com'
-license          'All rights reserved'
+license          'Apache v2.0'
 description      'Installs/Configures plex'
 source_url       'https://github.com/meringu/plex'
 issues_url       'https://github.com/meringu/plex/issues'
