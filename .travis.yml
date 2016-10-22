@@ -7,13 +7,19 @@ rvm:
 - 2.3.1
 script:
 - |
-    if [ "$SUITE" != "unit" ]; then
+    if [ $SUITE != unit ]; then
       KITCHEN_YAML=.kitchen.docker.yml bundle exec kitchen test $SUITE
     fi
 - |
-    if [ "$SUITE" == "unit" ]; then
+    if [ $SUITE = unit ]; then
       bundle exec rspec
     fi
+deploy:
+  provider: script
+  script: openssl aes-256-cbc -K $encrypted_ec1f2f0aa95a_key -iv $encrypted_ec1f2f0aa95a_iv -in .supermarket.pem.enc -out .supermarket.pem -d && bundle exec stove login --username meringu --key .supermarket.pem && bundle exec stove --no-git
+  on:
+    tags: true
+    condition: $SUITE = unit
 env:
   - SUITE=unit
   - SUITE=install-centos-72

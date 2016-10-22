@@ -1,4 +1,4 @@
-.kitchen/
-Berksfile.lock
-Gemfile.lock
-
+/.kitchen/
+/.vagrant/
+/*.lock
+/*.pem
