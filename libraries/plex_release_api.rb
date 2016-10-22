@@ -76,7 +76,11 @@ module Plex
                         end
               rels[distro] ||= {}
               arch = rel['build'].split('-').last
-              rels[distro][arch] = rel['url']
+              rels[distro][arch] = {
+                'url' => rel['url'],
+                'version' => meta['version'],
+                'filename' => rel['url'].gsub(%r{.*/}, '')
+              }
             end
           end
         end

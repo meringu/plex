@@ -2,6 +2,7 @@
 driver:
   name: docker
   privileged: true
+  max_ssh_sessions: 1
 
 provisioner:
   name: chef_zero
@@ -18,9 +19,9 @@ platforms:
       run_command: /sbin/init
 
 suites:
-  - name: default
+  - name: install_and_start
     run_list:
-      - recipe[plex::default]
+      - recipe[plex::install_and_start_pms]
     attributes:
       plex:
         service_provider: Chef::Provider::Service::Systemd

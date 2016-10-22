@@ -1,10 +1,1 @@
-#
-# Cookbook Name:: plex
-# Recipe:: default
-#
-# Copyright 2015, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
-
-include_recipe 'plex::pms'
+include_recipe 'plex::install_and_start_pms'
