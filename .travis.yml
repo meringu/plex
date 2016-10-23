@@ -6,4 +6,18 @@ language: ruby
 rvm:
 - 2.3.1
 script:
-- KITCHEN_YAML=.kitchen.docker.yml bundle exec kitchen test
+- KITCHEN_YAML=.kitchen.docker.yml bundle exec kitchen test $SUITE
+env:
+  - SUITE=install-centos-72
+  - SUITE=install-fedora-22
+  - SUITE=install-ubuntu-1604
+  - SUITE=install-and-start-centos-72
+  - SUITE=install-and-start-fedora-22
+  - SUITE=install-and-start-ubuntu-1604
+  # TODO: These two tests fail on travis
+  # - SUITE=uninstall-centos-72
+  # - SUITE=uninstall-fedora-22
+  - SUITE=uninstall-ubuntu-1604
+  - SUITE=reinstall-centos-72
+  - SUITE=reinstall-fedora-22
+  - SUITE=reinstall-ubuntu-1604

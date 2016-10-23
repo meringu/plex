@@ -50,11 +50,11 @@ end
 action :uninstall do
   case node['platform_family']
   when 'debian'
-    dpkg_package 'codedeploy-agent' do
+    dpkg_package 'plexmediaserver' do
       action :purge
     end
   when 'fedora', 'rhel'
-    package package_name do
+    rpm_package 'plexmediaserver' do
       action :remove
     end
   else
