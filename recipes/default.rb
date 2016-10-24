@@ -1,1 +1,6 @@
-include_recipe 'plex::install_and_start_pms'
+plex_media_server 'pms' do
+  channel node['plex']['channel']
+  token node['plex']['token']
+  service_provider node['plex']['service_provider']
+  source node['plex']['source']
+end

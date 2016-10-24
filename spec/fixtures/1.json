@@ -1,0 +1,95 @@
+{
+  "computer": {
+    "Windows": {
+      "releases": [
+        {
+          "label": "Download",
+          "build": "windows-i386",
+          "distro": "english",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/Plex-Media-Server-1.1.4.2757-24ffd60-en-US.exe",
+          "checksum": "b902ca15685219e8e6c6c4b3d04ce4300e144e5e"
+        }
+      ]
+    },
+    "Mac": {
+      "releases": [
+        {
+          "label": "Download",
+          "build": "darwin-x86_64",
+          "distro": "macosx",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/PlexMediaServer-1.1.4.2757-24ffd60-OSX.zip",
+          "checksum": "96cb985b8541b1197c32e3c94b94b551fbcd924b"
+        }
+      ]
+    },
+    "Linux": {
+      "releases": [
+        {
+          "label": "Ubuntu 64-bit (10.04 Lucid or newer)",
+          "build": "linux-ubuntu-x86_64",
+          "distro": "ubuntu",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/plexmediaserver_1.1.4.2757-24ffd60_amd64.deb",
+          "checksum": "5e43f4626d07aa99a72ea134675dfc2464203eff"
+        },
+        {
+          "label": "Ubuntu 32-bit (10.04 Lucid or newer)",
+          "build": "linux-ubuntu-i686",
+          "distro": "ubuntu",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/plexmediaserver_1.1.4.2757-24ffd60_i386.deb",
+          "checksum": "3b5fc0f06dc1d06f6389c4ae931f684ed63b415d"
+        },
+        {
+          "label": "Fedora 64-bit (RPM for Fedora 14 or newer)",
+          "build": "linux-ubuntu-x86_64",
+          "distro": "redhat",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/plexmediaserver-1.1.4.2757-24ffd60.x86_64.rpm",
+          "checksum": "8da177af584224521023134d926fad9b8db1b076"
+        },
+        {
+          "label": "Fedora 32-bit (RPM for Fedora 14 or newer)",
+          "build": "linux-ubuntu-i686",
+          "distro": "redhat",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/plexmediaserver-1.1.4.2757-24ffd60.i386.rpm",
+          "checksum": "39bc5481a900a432be81a78b6f798348b172282a"
+        },
+        {
+          "label": "CentOS 64-bit (RPM for CentOS 6 or newer)",
+          "build": "linux-ubuntu-x86_64",
+          "distro": "redhat",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/plexmediaserver-1.1.4.2757-24ffd60.x86_64.rpm",
+          "checksum": "8da177af584224521023134d926fad9b8db1b076"
+        },
+        {
+          "label": "CentOS 32-bit (RPM for CentOS 6 or newer)",
+          "build": "linux-ubuntu-i686",
+          "distro": "redhat",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/plexmediaserver-1.1.4.2757-24ffd60.i386.rpm",
+          "checksum": "39bc5481a900a432be81a78b6f798348b172282a"
+        }
+      ]
+    },
+    "FreeBSD": {
+      "releases": [
+        {
+          "label": "Download 64-bit",
+          "build": "freebsd-x86_64",
+          "distro": "freebsd",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/PlexMediaServer-1.1.4.2757-24ffd60-freebsd-amd64.tar.bz2",
+          "checksum": "0932bf2bacfb2150d647976ce464e064fc4929f7"
+        }
+      ]
+    }
+  },
+  "nas": {
+    "SomeNAS": {
+      "releases": [
+        {
+          "label": "ARMv7",
+          "build": "linux-synology-armv7",
+          "url": "https://downloads.plex.tv/plex-media-server/1.1.4.2757-24ffd60/PlexMediaServer-1.1.4.2757-24ffd60-arm7.file",
+          "checksum": "97e82dc16caf3029f418597095263f134b8c6fd7"
+        }
+      ]
+    }
+  }
+}

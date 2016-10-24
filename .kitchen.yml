@@ -13,19 +13,16 @@ platforms:
 suites:
   - name: install
     run_list:
-      - recipe[plex::install_pms]
-  - name: install_and_start
-    run_list:
-      - recipe[plex::install_and_start_pms]
+      - recipe[plex::default]
   - name: uninstall
     run_list:
-      - recipe[plex::install_and_start_pms]
+      - recipe[plex::install_pms]
       - recipe[plex::uninstall_pms]
   - name: reinstall
     run_list:
       - recipe[plex::install_pms]
       - recipe[plex::uninstall_pms]
-      - recipe[plex::install_and_start_pms]
+      - recipe[plex::default]
 
 verifier:
   name: inspec

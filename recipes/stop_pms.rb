@@ -1,3 +1,3 @@
 plex_media_server 'pms' do
-  action :uninstall
+  action :stop
 end

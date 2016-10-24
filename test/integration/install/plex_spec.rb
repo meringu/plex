@@ -8,7 +8,7 @@ control 'Plex-plexmediaserver' do
 
   describe service('plexmediaserver') do
     it { should be_installed }
-    it { should_not be_enabled }
-    it { should_not be_running }
+    it { should be_enabled }
+    it { should be_running }
   end
 end

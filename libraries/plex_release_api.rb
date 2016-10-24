@@ -5,7 +5,7 @@ require 'json'
 
 module Plex
   module ReleaseApi
-    DEFAULT_API_URL = 'https://plex.tv'.freeze
+    DEFAULT_API_URL ||= 'https://plex.tv'.freeze
 
     class Client
       def initialize(opts = {})
@@ -76,14 +76,11 @@ module Plex
                         end
               rels[distro] ||= {}
               arch = rel['build'].split('-').last
-              rels[distro][arch] = {
-                'url' => rel['url'],
-                'version' => meta['version'],
-                'filename' => rel['url'].gsub(%r{.*/}, '')
-              }
+              rels[distro][arch] = rel['url']
             end
           end
         end
+        rels['windows']['x86_64'] = rels['windows']['i386']
         rels
       end
 

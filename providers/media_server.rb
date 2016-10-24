@@ -4,19 +4,34 @@ def whyrun_supported?
   true
 end
 
-def install_pms
+def pms_source
+  return @source unless @source.nil?
+  return new_resource.source unless new_resource.source.nil?
   arch = node['kernel']['machine']
   platform_family = node['platform_family']
   installer_file = "#{Chef::Config[:file_cache_path]}/plex_installer"
   client = Plex::ReleaseApi::Client.new(channel: new_resource.channel,
                                         plex_token: new_resource.token)
+  @source = client.pms_releases[platform_family][arch]
+end
 
-  release = client.pms_releases[platform_family][arch]
+def install_pms
 
-  installer_file = "#{Chef::Config[:file_cache_path]}/#{release['filename']}"
+end
+
+def do_service(action)
+  service 'plexmediaserver' do
+    provider Object.const_get(new_resource.service_provider) unless new_resource.service_provider.nil?
+    action action
+  end
+end
+
+action :install do
+  file_name = pms_source.gsub(%r{.*/}, '')
+  installer_file = "#{Chef::Config[:file_cache_path]}/#{file_name}"
 
   remote_file installer_file do
-    source release['url']
+    source pms_source
     action :create
   end
 
@@ -28,23 +43,6 @@ def install_pms
   else
     Chef::Application.fatal!("Unsuppoerted platform_family #{node['platform_family']}")
   end
-end
-
-def do_service(action)
-  service 'plexmediaserver' do
-    provider Object.const_get(new_resource.service_provider) unless new_resource.service_provider.nil?
-    action action
-  end
-end
-
-action :install do
-  install_pms
-  do_service [:disable, :stop]
-end
-
-action :install_and_start do
-  install_pms
-  do_service [:enable, :start]
 end
 
 action :uninstall do

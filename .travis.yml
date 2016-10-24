@@ -6,14 +6,19 @@ language: ruby
 rvm:
 - 2.3.1
 script:
-- KITCHEN_YAML=.kitchen.docker.yml bundle exec kitchen test $SUITE
+- |
+    if [ "$SUITE" != "unit" ]; then
+      KITCHEN_YAML=.kitchen.docker.yml bundle exec kitchen test $SUITE
+    fi
+- |
+    if [ "$SUITE" == "unit" ]; then
+      bundle exec rspec
+    fi
 env:
+  - SUITE=unit
   - SUITE=install-centos-72
   - SUITE=install-fedora-22
   - SUITE=install-ubuntu-1604
-  - SUITE=install-and-start-centos-72
-  - SUITE=install-and-start-fedora-22
-  - SUITE=install-and-start-ubuntu-1604
   # TODO: These two tests fail on travis
   # - SUITE=uninstall-centos-72
   # - SUITE=uninstall-fedora-22

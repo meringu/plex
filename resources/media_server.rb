@@ -1,5 +1,4 @@
 actions :install,
-        :install_and_start,
         :uninstall,
         :start,
         :stop,
@@ -7,8 +6,9 @@ actions :install,
         :enable,
         :disable
 
-default_action :install_and_start
+default_action [:install, :start, :enable]
 
 attribute :channel, kind_of: String
 attribute :token, kind_of: String
 attribute :service_provider, kind_of: String
+attribute :source, kind_of: String
