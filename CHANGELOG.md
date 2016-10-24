@@ -1,3 +1,7 @@
+## 0.2.2 (2016-10-24)
+
+* Refactor into LWRP
+
 ## 0.2.1: (2016-08-02)
 
 * Ensure the plexmediaserver service is started
