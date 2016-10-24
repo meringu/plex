@@ -11,8 +11,77 @@ Fedora, Debian or RHEL family Linux
 
 # Usage
 
+## Quick start
+
 Add `recipe[plex]` to your run_list to install/upgrade to the latest version of
 Plex media server
+
+## Recipes
+
+### default.rb
+
+Installs, starts, and enables Plex media server.
+
+### disable_pms.rb
+
+Disables Plex media server.
+
+### enable_pms.rb
+
+Enables Plex media server.
+
+### install_pms.rb
+
+Installs Plex media server.
+
+### restart_pms.rb
+
+Restarts Plex media server.
+
+### start_pms.rb
+
+Starts Plex media server.
+
+### stop_pms.rb
+
+Stops Plex media server.
+
+### uninstall_pms.rb
+
+Uninstalls Plex media server.
+
+## Attributes
+
+|             Attribute              | Default |                                                Description                                                 |
+|:----------------------------------:|:-------:|:----------------------------------------------------------------------------------------------------------:|
+|     `node['plex']['channel']`      |  `nil`  |                   Set to `'plexpass'` to use the Plex Pass version of Plex media server                    |
+|      `node['plex']['token']`       |  `nil`  | If you set `channel` to `'plexpass`' this be the value the `X-Plex-Token` header when logged in to plex.tv |
+| `node['plex']['service_provider']` |  `nil`  |           Override the service provider chef uses to interact with the Plex media server service           |
+|      `node['plex']['source']`      |  `nil`  |                        Override to install from a custom location to pin a version                         |
+
+## Resources and Providers
+
+### plex_media_server.rb
+
+Manages the Plex media server installation
+
+#### Actions
+
+Default: `install`, `enable`, `start`
+
+- `enable`
+- `install`
+- `restart`
+- `start`
+- `stop`
+- `uninstall`
+
+#### Attributes
+
+- `channel` - Set to `'plexpass'` to use the Plex Pass version of Plex media server
+- `token` - If you set `channel` to `'plexpass'` this be the value the `X-Plex-Token` header when logged in to plex.tv
+- `service_provider` - Override the service provider chef uses to interact with the Plex media server service
+- `source` - Override to install from a custom location to pin a version
 
 # Contributing
 
