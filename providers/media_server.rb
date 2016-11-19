@@ -15,10 +15,6 @@ def pms_source
   @source = client.pms_releases[platform_family][arch]
 end
 
-def install_pms
-
-end
-
 def do_service(action)
   service 'plexmediaserver' do
     provider Object.const_get(new_resource.service_provider) unless new_resource.service_provider.nil?
