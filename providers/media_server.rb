@@ -33,7 +33,11 @@ action :install do
 
   case node['platform_family']
   when 'debian'
-    dpkg_package installer_file
+    package 'plexmediaserver' do
+      action :upgrade
+      source installer_file
+      provider Chef::Provider::Package::Dpkg
+  end
   when 'fedora', 'rhel'
     rpm_package installer_file
   else
