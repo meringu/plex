@@ -1,3 +1,7 @@
+## 0.2.3 (2016-12-12)
+
+* Action update for plex media server package
+
 ## 0.2.2 (2016-10-24)
 
 * Refactor into LWRP
