@@ -31,17 +31,16 @@ action :install do
     action :create
   end
 
-  case node['platform_family']
-  when 'debian'
-    package 'plexmediaserver' do
-      action :upgrade
-      source installer_file
-      provider Chef::Provider::Package::Dpkg
-  end
-  when 'fedora', 'rhel'
-    rpm_package installer_file
-  else
-    Chef::Application.fatal!("Unsuppoerted platform_family #{node['platform_family']}")
+  package installer_file do
+    action :upgrade
+    provider case node['platform_family']
+    when 'debian'
+      Chef::Provider::Package::Dpkg
+    when 'fedora', 'rhel'
+      Chef::Provider::Package::Rpm
+    else
+      raise "Unsupported platform_family #{node['platform_family']}"
+    end
   end
 end
 

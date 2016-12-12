@@ -14,6 +14,16 @@ describe 'plex_media_server' do
     end
   end
 
+  let(:package_file) do
+    if platform == 'ubuntu'
+      'plexmediaserver.deb'
+    else
+      'plexmediaserver.rpm'
+    end
+  end
+
+  let(:package_cache_path) { File.join(file_cache_path, package_file) }
+
   let(:plex_release_api_client) { double('Plex::ReleaseApi::Client') }
 
   let(:chef_run) do
@@ -47,13 +57,8 @@ describe 'plex_media_server' do
       let(:action) { 'install' }
 
       it 'should install plex media server' do
-        if platform == 'ubuntu'
-          expect(chef_run).to create_remote_file('/var/chef/cahce/plexmediaserver.deb').with(source: download_link)
-          expect(chef_run).to install_dpkg_package('/var/chef/cahce/plexmediaserver.deb')
-        else
-          expect(chef_run).to create_remote_file('/var/chef/cahce/plexmediaserver.rpm').with(source: download_link)
-          expect(chef_run).to install_rpm_package('/var/chef/cahce/plexmediaserver.rpm')
-        end
+        expect(chef_run).to create_remote_file(package_cache_path).with(source: download_link)
+        expect(chef_run).to upgrade_package(package_cache_path)
       end
     end
 
