@@ -117,21 +117,21 @@ describe 'plex_media_server' do
 
   context 'ubuntu' do
     let(:platform) { 'ubuntu' }
-    let(:version) { '16.04' }
+    let(:version) { '18.04' }
 
     it_should_behave_like 'plex_media_server'
   end
 
   context 'fedora' do
     let(:platform) { 'fedora' }
-    let(:version) { '24' }
+    let(:version) { '29' }
 
     it_should_behave_like 'plex_media_server'
   end
 
   context 'centos' do
     let(:platform) { 'centos' }
-    let(:version) { '7.2.1511' }
+    let(:version) { '7.6.1804' }
 
     it_should_behave_like 'plex_media_server'
   end
