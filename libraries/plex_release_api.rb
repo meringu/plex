@@ -16,7 +16,7 @@ module Plex
       end
 
       def pms_releases
-        releases(1)
+        releases(5)
       end
 
       def pht_releases
